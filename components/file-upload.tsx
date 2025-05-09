@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { UploadCloud, X, FileIcon, AlertCircle, Loader2 } from "lucide-react";
-import { useDropzone } from "react-dropzone";
+import { useDropzone, FileRejection } from "react-dropzone";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -49,7 +49,7 @@ export function FileUpload({
   >({});
 
   const onDrop = React.useCallback(
-    (acceptedFiles: File[], rejectedFiles: any[]) => {
+    (acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
       setError(null);
 
       if (rejectedFiles.length > 0) {
